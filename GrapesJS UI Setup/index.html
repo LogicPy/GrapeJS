@@ -120,7 +120,81 @@
         label: 'Block',
         attributes: { class:'gjs-fonts gjs-f-b1' },
         content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
-      })
+      });
+      editor.BlockManager.add('text-block', {
+        label: 'Text',
+        content: '<div>Insert your text here</div>',
+      });
+
+      editor.BlockManager.add('image-block', {
+        label: 'Image',
+        content: '<img src="path-to-image.jpg" />',
+      });
+
+      editor.BlockManager.add('responsive-three-block', {
+          label: 'Responsive Three Block',
+          content: `
+              <div class="responsive-block">
+                  <div class="inner-block">Block 1</div>
+                  <div class="inner-block">Block 2</div>
+                  <div class="inner-block">Block 3</div>
+              </div>
+              <style>
+                  .responsive-block {
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                  }
+                  .responsive-block .inner-block {
+                      flex: 1;
+                      margin: 5px;
+                      padding: 10px;
+                      border: 1px solid #ccc;
+                      text-align: center;
+                  }
+                  @media (max-width: 600px) {
+                      .responsive-block {
+                          flex-direction: column;
+                      }
+                  }
+              </style>
+          `,
+          attributes: { class: 'gjs-block-section' },
+          category: 'Layout',
+      });
+
+      editor.BlockManager.add('responsive-two-block', {
+          label: 'Responsive Two Block',
+          content: `
+              <div class="responsive-block">
+                  <div class="inner-block">Block 1</div>
+                  <div class="inner-block">Block 2</div>
+              </div>
+              <style>
+                  .responsive-block {
+                      display: flex;
+                      flex-direction: row;
+                      justify-content: space-between;
+                  }
+                  .responsive-block .inner-block {
+                      flex: 1;
+                      margin: 5px;
+                      padding: 10px;
+                      border: 1px solid #ccc;
+                      text-align: center;
+                  }
+                  @media (max-width: 600px) {
+                      .responsive-block {
+                          flex-direction: column;
+                      }
+                  }
+              </style>
+          `,
+          attributes: { class: 'gjs-2block-section' },
+          category: 'Layout',
+      });
+// Add more blocks as needed...
+
     </script>
   </body>
 </html>
